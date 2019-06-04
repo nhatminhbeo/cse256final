@@ -3,24 +3,45 @@ import numpy as np
 import pickle
 import json
 import string
-from flask_cors import CORS
-
 app = Flask(__name__)
-CORS(app)
 
-@app.route('/<sentence>')
-def hello_world(sentence):
-	return analyze(sentence)
+@app.route('/0/<sentence>')
+def hello_world0(sentence):
+	return analyze(sentence, 0)
 
-with open("vectorizer.pickle", "rb") as file:
-    vectorizer = pickle.load(file)
-vocabularies = [word for word, index in sorted(vectorizer.vocabulary_.items(), key=lambda x: x[1])]
+@app.route('/1/<sentence>')
+def hello_world1(sentence):
+	return analyze(sentence, 1)
 
-with open("classifier.pickle", "rb") as file:
-    classifier = pickle.load(file)
-weights = classifier.coef_.squeeze()
+with open("vectorizer_pa2.pickle", "rb") as file:
+    vectorizer_pa2 = pickle.load(file)
+vocabularies_pa2 = [word for word, index in sorted(vectorizer_pa2.vocabulary_.items(), key=lambda x: x[1])]
 
-def analyze(sentence):
+with open("classifier_pa2.pickle", "rb") as file:
+    classifier_pa2 = pickle.load(file)
+weights_pa2 = classifier_pa2.coef_.squeeze()
+
+with open("vectorizer_imdb.pickle", "rb") as file:
+    vectorizer_imdb = pickle.load(file)
+vocabularies_imdb = [word for word, index in sorted(vectorizer_imdb.vocabulary_.items(), key=lambda x: x[1])]
+
+with open("classifier_imdb.pickle", "rb") as file:
+    classifier_imdb = pickle.load(file)
+weights_imdb = classifier_imdb.coef_.squeeze()
+
+def analyze(sentence, dataset):
+	# Select models based on the dataset
+	if dataset == 0:
+		vectorizer = vectorizer_pa2
+		vocabularies = vocabularies_pa2
+		classifier = classifier_pa2
+		weights = weights_pa2
+	else:
+		vectorizer = vectorizer_imdb
+		vocabularies = vocabularies_imdb
+		classifier = classifier_imdb
+		weights = weights_imdb
+
 	# Make the words lower case
 	sentence_brief = sentence.lower()
 	
@@ -33,7 +54,7 @@ def analyze(sentence):
 	
 	X_ex = vectorizer.transform([sentence]).toarray().squeeze()
 	indices_ex = np.nonzero(X_ex)[0]
-	weights_ex = classifier.coef_.squeeze()[indices_ex]
+	weights_ex = weights[indices_ex]
 	features_ex = X_ex[indices_ex]
 	results_ex = weights_ex * features_ex
 	
