@@ -69,4 +69,4 @@ def analyze(sentence, dataset):
 	return(jsons)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
