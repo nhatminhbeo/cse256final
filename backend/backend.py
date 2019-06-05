@@ -4,12 +4,15 @@ import pickle
 import json
 import string
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/0/<sentence>')
+@app.route('/0/<sentence>', methods=['GET', 'OPTIONS'])
+@crossdomain(origin='*')
 def hello_world0(sentence):
 	return analyze(sentence, 0)
 
-@app.route('/1/<sentence>')
+@app.route('/1/<sentence>', methods=['GET', 'OPTIONS'])
+@crossdomain(origin='*')
 def hello_world1(sentence):
 	return analyze(sentence, 1)
 

@@ -43,7 +43,7 @@ function one($rootScope, $scope, $http, $timeout) {
 
   sc.change = function () {
     
-    $http.get('localhost:5000/1/' + sc.sentence)
+    $http.get('http://54.201.134.0:5000/1/' + sc.sentence)
     
     .then(res => {
       var response = res.data;
