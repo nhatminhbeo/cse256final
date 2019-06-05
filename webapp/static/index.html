@@ -98,8 +98,9 @@
     <hr class="m-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="gutenberg1">
-      <div class="col-6", id="wordcloud1-positive"></div>
-      <div class="col-6", id="wordcloud1-negative"></div>
+      <div class="col-5", id="wordcloud1-positive"></div>
+      <div class="col-2"></div>
+      <div class="col-5", id="wordcloud1-negative"></div>
     </section>
 
     <hr class="m-0">
@@ -114,11 +115,11 @@
             </div>
             <div ng-if="sentence.length > 0">
               <div class="subheading mb-3">Unigram</div>
-              <h3 class="mb-0"><a href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{un | dataContent}}" data-html="true" ng-tooltip ng-repeat="un in uni">/{{un.key}}/ </a></h3>
+              <h3 class="mb-0"><a style="color: #{{un | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{un | dataContent}}" data-html="true" ng-repeat="un in uni">/{{un.key}}/ </a></h3>
               <div class="subheading mb-3">Bigram</div>
-              <h3 class="mb-0"><a href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{b | dataContent}}" data-html="true"   ng-repeat="b in bi">/{{b.key}}/ </a></h3>
+              <h3 class="mb-0"><a style="color: #{{b | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{b | dataContent}}" data-html="true" ng-repeat="b in bi">/{{b.key}}/ </a></h3>
               <div class="subheading mb-3">Trigram</div>
-              <h3 class="mb-0"><a href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{tr | dataContent}}" data-html="true" ng-repeat="tr in tri">/{{tr.key}}/ </a></h3>
+              <h3 class="mb-0"><a style="color: #{{tr | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{tr | dataContent}}" data-html="true" ng-repeat="tr in tri">/{{tr.key}}/ </a></h3>
             </div>
             
           </div>
@@ -134,8 +135,9 @@
     <hr class="m-0">
 
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="imdb1">
-      <div class="col-6", id="wordcloud2-positive"></div>
-      <div class="col-6", id="wordcloud2-negative"></div>
+      <div class="col-5", id="wordcloud2-positive"></div>
+      <div class="col-2"></div>
+      <div class="col-5", id="wordcloud2-negative"></div>
     </section>
 
     <hr class="m-0">
@@ -197,7 +199,7 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/bootstrap/js/ui-bootstrap.min.js"></script>
   
-  <script src="js/rainbowvis.js"></script>
+  <script src="vendor/bootstrap/js/rainbowvis.js"></script>
 
   <!-- Wordcloud scripts -->
   <script src="js/wordcloud2-js.js"></script>
