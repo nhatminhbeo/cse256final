@@ -113,11 +113,15 @@
               <input ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence" type="text">
               <label for="first_name">Input your sentence</label>
             </div>
-            <div ng-if="sentence.length > 0">
+            <div ng-if="uni.length > 0">
               <div class="subheading mb-3">Unigram</div>
               <h3 class="mb-0"><a style="color: #{{un | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{un | dataContent}}" data-html="true" ng-repeat="un in uni">/{{un.key}}/ </a></h3>
+            </div>
+            <div ng-if="bi.length > 0">
               <div class="subheading mb-3">Bigram</div>
               <h3 class="mb-0"><a style="color: #{{b | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{b | dataContent}}" data-html="true" ng-repeat="b in bi">/{{b.key}}/ </a></h3>
+            </div>
+            <div ng-if="tri.length > 0">
               <div class="subheading mb-3">Trigram</div>
               <h3 class="mb-0"><a style="color: #{{tr | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{tr | dataContent}}" data-html="true" ng-repeat="tr in tri">/{{tr.key}}/ </a></h3>
             </div>

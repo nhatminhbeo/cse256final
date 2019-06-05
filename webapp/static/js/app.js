@@ -1,6 +1,6 @@
 var app = angular.module('256', []);
 app.controller('one', ['$rootScope', '$scope', '$http', '$timeout', one]);
-app.controller('two', ['$rootScope', '$scope', '$http', '$timeout', two]);
+//app.controller('two', ['$rootScope', '$scope', '$http', '$timeout', two]);
 app.filter('dataContent', ['$sce', dataContent]);
 app.filter('colorize', ['$rootScope', colorize]);
                            
@@ -43,7 +43,7 @@ function one($rootScope, $scope, $http, $timeout) {
 
   sc.change = function () {
     
-    $http.get('http://54.201.134.0:5000/1/' + sc.sentence)
+    $http.get('http://54.201.134.0:5000/0/' + sc.sentence)
     
     .then(res => {
       var response = res.data;

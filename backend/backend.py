@@ -11,11 +11,19 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 @app.route('/0/<sentence>', methods=['GET', 'OPTIONS'])
 def hello_world0(sentence):
 	return analyze(sentence, 0)
-
+  
+@app.route('/0', methods=['GET', 'OPTIONS'])
+def hello_world0(""):
+	return analyze(sentence, 0)
+  
 @app.route('/1/<sentence>', methods=['GET', 'OPTIONS'])
 def hello_world1(sentence):
 	return analyze(sentence, 1)
-
+  
+@app.route('/1', methods=['GET', 'OPTIONS'])
+def hello_world1(""):
+	return analyze(sentence, 1)
+  
 @app.after_request
 def after_request(response):
   response.headers.add('Access-Control-Allow-Origin', '*')
