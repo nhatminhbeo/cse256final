@@ -1,9 +1,9 @@
-from flask import Flask, request, send_from_directory
+from flask import Flask
 import numpy as np
 import pickle
 import json
 import string
-app = Flask(__name__, static_url_path='static')
+app = Flask(__name__)
 
 @app.route('/0/<sentence>')
 def hello_world0(sentence):
@@ -68,6 +68,5 @@ def analyze(sentence, dataset):
 
 	return(jsons)
 
-@app.route('/<path:path>')
-def send_static(path):
-    return send_from_directory('', path)
+if __name__ == '__main__':
+    app.run(debug=True)
