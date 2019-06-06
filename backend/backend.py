@@ -70,7 +70,7 @@ def analyze(sentence, dataset):
 	# Remove all single letter words
 	sentence_brief = ' '.join([w for w in sentence_brief.split() if len(w) > 1] )
 	raw_X_ex = vectorizer.transform([sentence])
-	confidence = cls.predict_proba(raw_X_ex).squeeze().tolist()
+	confidence = classifier.predict_proba(raw_X_ex).squeeze().tolist()
 	
 	X_ex = raw_X_ex.toarray().squeeze()
 	indices_ex = np.nonzero(X_ex)[0]
