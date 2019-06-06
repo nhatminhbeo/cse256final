@@ -13,7 +13,7 @@ def hello_world0(sentence):
 	return analyze(sentence, 0)
   
 @app.route('/0', methods=['GET', 'OPTIONS'])
-def hello_world0():
+def hello_world0empty():
 	return analyze('', 0)
   
 @app.route('/1/<sentence>', methods=['GET', 'OPTIONS'])
@@ -21,7 +21,7 @@ def hello_world1(sentence):
 	return analyze(sentence, 1)
   
 @app.route('/1', methods=['GET', 'OPTIONS'])
-def hello_world1():
+def hello_world1empty():
 	return analyze('', 1)
   
 @app.after_request
