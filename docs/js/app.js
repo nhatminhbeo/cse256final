@@ -130,7 +130,7 @@ function one($rootScope, $scope, $http, $timeout) {
   sc.change = function () {
     
     
-    $http.get('http://54.201.134.0:5000/0/' + sc.sentence)
+    $http.get('https://54.201.134.0:5000/0/' + sc.sentence)
     
     .then(res => {
       var response = res.data;
@@ -252,7 +252,7 @@ function two($rootScope, $scope, $http, $timeout) {
   sc.change = function () {
     
     
-    $http.get('http://54.201.134.0:5000/1/' + sc.sentence)
+    $http.get('https://54.201.134.0:5000/1/' + sc.sentence)
     
     .then(res => {
       var response = res.data;
