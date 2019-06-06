@@ -5,7 +5,15 @@ app.filter('dataContent', ['$sce', dataContent]);
 app.filter('colorize', ['$rootScope', colorize]);
 app.filter('toFixed', ['$rootScope', toFixed]);
 
-var chartOption = {};
+var chartOption = {
+  scales: {
+    yAxes: {
+      ticks: {
+        beginAtZero: true
+      }
+    }
+  }
+};
                            
 function dataContent ($sce) {
   return input => {
