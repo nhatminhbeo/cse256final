@@ -4,10 +4,10 @@ import numpy as np
 import pickle
 import json
 import string
-app = Flask(__name__, static_url_path='/static/')
+app = Flask(__name__, static_url_path='/')
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-@app.route('/static/<path:path>')
+@app.route('/<path:path>')
 def send_static(path):
     return send_from_directory('static', path)
 
