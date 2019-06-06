@@ -12,7 +12,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 def hello_world0(sentence):
 	return analyze(sentence, 0)
   
-@app.route('/0', methods=['GET', 'OPTIONS'])
+@app.route('/0/', methods=['GET', 'OPTIONS'])
 def hello_world0empty():
 	return analyze('', 0)
   
@@ -20,7 +20,7 @@ def hello_world0empty():
 def hello_world1(sentence):
 	return analyze(sentence, 1)
   
-@app.route('/1', methods=['GET', 'OPTIONS'])
+@app.route('/1/', methods=['GET', 'OPTIONS'])
 def hello_world1empty():
 	return analyze('', 1)
   
