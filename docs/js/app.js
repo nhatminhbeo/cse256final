@@ -130,7 +130,7 @@ function one($rootScope, $scope, $http, $timeout) {
   sc.change = function () {
     
     
-    $http.get('https://vnmb.xyz:5000/0/' + sc.sentence)
+    $http.get('https://lightsail.vnmb.xyz:5000/0/' + sc.sentence)
     
     .then(res => {
       var response = res.data;
@@ -252,7 +252,7 @@ function two($rootScope, $scope, $http, $timeout) {
   sc.change = function () {
     
     
-    $http.get('https://vnmb.xyz:5000/1/' + sc.sentence)
+    $http.get('https://lightsail.vnmb.xyz:5000/1/' + sc.sentence)
     
     .then(res => {
       var response = res.data;
