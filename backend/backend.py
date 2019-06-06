@@ -92,4 +92,4 @@ def analyze(sentence, dataset):
 	return(jsons)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', ssl_context=('/etc/letsencrypt/live/lightsail.vnmb.xyz/fullchain.pem', '/etc/letsencrypt/live/lightsail.vnmb.xyz/privkey.pem'))
