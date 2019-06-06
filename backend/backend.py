@@ -69,14 +69,17 @@ def analyze(sentence, dataset):
 	
 	# Remove all single letter words
 	sentence_brief = ' '.join([w for w in sentence_brief.split() if len(w) > 1] )
+    
+    raw_X_ex = vectorizer.transform([sentence])
+    confidence = cls.predict_proba(raw_X_ex).squeeze().tolist()
 	
-	X_ex = vectorizer.transform([sentence]).toarray().squeeze()
+	X_ex = raw_X_ex.toarray().squeeze()
 	indices_ex = np.nonzero(X_ex)[0]
 	weights_ex = weights[indices_ex]
 	features_ex = X_ex[indices_ex]
 	results_ex = weights_ex * features_ex
 	
-	grams = [{}, {}, {}]
+	grams = [{}, {}, {}, confidence]
 	for i in np.argsort(results_ex)[::-1]:
 	    token = vocabularies[indices_ex[i]]
 	    indices = [i for i in range(len(sentence_brief)) if sentence_brief.startswith(token, i)]    

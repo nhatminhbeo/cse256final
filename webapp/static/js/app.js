@@ -40,6 +40,23 @@ function one($rootScope, $scope, $http, $timeout) {
   rs.rainbow = new Rainbow();
   rs.rainbow.setSpectrum('orangered', 'lawngreen');
   rs.rainbow.setNumberRange(-0.4,0.4);
+  
+  sc.positive = {
+    product: 0.4
+  }
+  sc.negative = {
+    product: -0.4
+  }
+  
+  sc.bias = {
+    feature: 1.0,
+    weights: 0.04065296,
+    product: 0.04065296,
+    key: 'bias'
+  }
+  
+  sc.prediction = 0;
+  sc.confidence = 0;
 
   sc.change = function () {
     
@@ -54,18 +71,30 @@ function one($rootScope, $scope, $http, $timeout) {
       sc.uni.sort(compare);
       sc.bi.sort(compare);
       sc.tri.sort(compare);
+      
+      sc.prediction = sc.bias;
+      sc.confidence = 0;
 
       sc.uni.forEach(each => {
+        sc.prediction += each.product;
         console.log(each);
       })
 
       sc.bi.forEach(each => {
+        sc.prediction += each.product;
         console.log(each);
       })
 
       sc.tri.forEach(each => {
+        sc.prediction += each.product;
         console.log(each);
       })
+      
+      
+      sc.confidence = (sc.prediction < 0) ? response[3][0] : response[3][1];
+      console.log(sc.prediction);
+      
+      
       
       return () => new Promise((resolve, reject) => resolve);
     })

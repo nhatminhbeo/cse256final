@@ -112,6 +112,15 @@
             <div class="input-field col-8">
               <input ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence" type="text">
               <label for="first_name">Input your sentence</label>
+              <div ng-if="sentence.length > 0">
+                is 
+                <span ng-if="prediction >= 0" style="color: #{{positive | colorize}}" >POSITIVE </span>
+                <span ng-if="prediction < 0" style="color: #{{negative | colorize}}" >NEGATIVE</span>
+                with confidence of
+                <span ng-if="prediction >= 0" style="color: #{{positive | colorize}}" >{{confidence}} </span>
+                <span ng-if="prediction >= 0" style="color: #{{negative | colorize}}" >{{confidence}} </span>
+            
+              </div>
             </div>
             <div ng-if="uni.length > 0">
               <div class="subheading mb-3">Unigram</div>
