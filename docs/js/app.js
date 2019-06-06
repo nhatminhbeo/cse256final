@@ -7,11 +7,11 @@ app.filter('toFixed', ['$rootScope', toFixed]);
 
 var chartOption = {
   scales: {
-    yAxes: {
+    yAxes: [{
       ticks: {
         beginAtZero: true
       }
-    }
+    }]
   }
 };
                            
