@@ -1,12 +1,15 @@
-from flask import Flask
+from flask import Flask, request, send_from_directory
 from flask_cors import CORS
 import numpy as np
 import pickle
 import json
 import string
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static/')
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
+@app.route('/static/<path:path>')
+def send_static(path):
+    return send_from_directory('static', path)
 
 @app.route('/0/<sentence>', methods=['GET', 'OPTIONS'])
 def hello_world0(sentence):
@@ -89,4 +92,4 @@ def analyze(sentence, dataset):
 	return(jsons)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', ssl_context=('cert.pem', 'key.pem'))
+    app.run(host='0.0.0.0')
