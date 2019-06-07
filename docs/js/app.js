@@ -303,7 +303,7 @@ function two($rootScope, $scope, $http, $timeout) {
       if (sc.uni.length > 0) {
         addToken(rs, chart, sc.uni[0]);
       }
-      sc.confidence = (sc.prediction < 0) ? response[3][0] : response[3][1];
+      sc.confidence = (sc.prediction < 0) ? response[3][1] : response[3][0];
       
       return () => new Promise((resolve, reject) => resolve);
     })
