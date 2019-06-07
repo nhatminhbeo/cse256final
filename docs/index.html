@@ -94,13 +94,15 @@
         </div>
       </div>
     </section>
-
+  
     <hr class="m-0">
-
+    
     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="gutenberg1">
+    
       <div class="col-5", id="wordcloud1-positive"></div>
       <div class="col-2"></div>
       <div class="col-5", id="wordcloud1-negative"></div>
+
     </section>
 
     <hr class="m-0">
@@ -110,8 +112,8 @@
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="col-7">
             <div class="input-field col-8">
-              <input ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence" type="text">
-              <label for="first_name">Input your sentence</label>
+              <textarea id="sentence1" class="materialize-textarea" ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence"></textarea>
+              <label for="sentence1">Input your sentence</label>
               <div ng-if="sentence.length > 0">
                 is 
                 <span ng-if="prediction >= 0" style="color: #{{positive | colorize}}" >POSITIVE </span>
@@ -134,7 +136,7 @@
               <div class="subheading mb-3">Trigram</div>
               <h3 class="mb-0"><a style="color: #{{tr | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{tr | dataContent}}" data-html="true" ng-click="updateChart(tr)" ng-repeat="tr in tri">/{{tr.key}}/ </a></h3>
             </div>
-            <div ng-if="uni.length > 0">
+            <div ng-if="sentence.length > 0">
               <div class="subheading mb-3">Other</div>
               <h3 class="mb-0"><a style="color: #{{bias | colorize}}" href="#gutenberg2" data-toggle="tooltip" data-placement="top" title="{{bias | dataContent}}" data-html="true" ng-click="updateChart(bias)">/bias/ </a></h3>
             </div>
@@ -157,24 +159,17 @@
       <div class="col-2"></div>
       <div class="col-5", id="wordcloud2-negative"></div>
     </section>
-
+    
     <hr class="m-0">
-
-    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="gutenberg1">
-      <div class="col-5", id="wordcloud1-positive"></div>
-      <div class="col-2"></div>
-      <div class="col-5", id="wordcloud1-negative"></div>
-    </section>
-
-    <hr class="m-0">
+    
     <div ng-controller='two'>
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="imdb2">
       <div class="w-100">
         <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
           <div class="col-7">
             <div class="input-field col-8">
-              <input ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence" type="text">
-              <label for="first_name">Input your sentence</label>
+              <textarea id="sentence2" class="materialize-textarea" ng-model="sentence" ng-change="change()" placeholder="This is good" id="sentence"></textarea>
+              <label for="sentence2">Input your sentence</label>
               <div ng-if="sentence.length > 0">
                 is 
                 <span ng-if="prediction >= 0" style="color: #{{positive | colorize}}" >POSITIVE </span>
@@ -197,7 +192,7 @@
               <div class="subheading mb-3">Trigram</div>
               <h3 class="mb-0"><a style="color: #{{tr | colorize}}" href="#imdb2" data-toggle="tooltip" data-placement="top" title="{{tr | dataContent}}" data-html="true" ng-click="updateChart(tr)" ng-repeat="tr in tri">/{{tr.key}}/ </a></h3>
             </div>
-            <div ng-if="uni.length > 0">
+            <div ng-if="sentence.length > 0">
               <div class="subheading mb-3">Other</div>
               <h3 class="mb-0"><a style="color: #{{bias | colorize}}" href="#imdb2" data-toggle="tooltip" data-placement="top" title="{{bias | dataContent}}" data-html="true" ng-click="updateChart(bias)">/bias/ </a></h3>
             </div>
